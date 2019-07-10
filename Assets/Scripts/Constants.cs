@@ -13,14 +13,14 @@ public static class Constants {
 
 	public static float MIN_SPEED = 5;
 	public static float MAX_SPEED = 25;
-	public static float CURRENT_MAX_SPEED = Constants.MAX_SPEED;
+	public static float currentMaxSpeed = Constants.MAX_SPEED;
 	public static float MIN_SIZE = 1;
 	public static float MAX_SIZE = 10;
 	public static float MIN_ATTACK = 1;
 	public static float MAX_ATTACK = 10;
 	public static float MIN_VISION = 0;
 	public static float MAX_VISION = 80;
-	public static float CURRENT_MAX_VISION = Constants.MAX_VISION;
+	public static float currentMaxVision = Constants.MAX_VISION;
 
 	public static float GetRandomFloat(float min, float max) {
 		return Random.Range (100 * min, 100 * max) / 100;

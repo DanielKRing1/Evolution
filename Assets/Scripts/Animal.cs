@@ -158,15 +158,15 @@ public class Animal : MonoBehaviour, IEdible {
 		this.RADIUS = Mathf.Sqrt(Mathf.Pow(boxCollider.x / 2, 2) + Mathf.Pow(boxCollider.y / 2, 2) + Mathf.Pow(boxCollider.z / 2, 2));
 	}
 	private void InitColor() {
-		if (this.body.speed > Constants.CURRENT_MAX_SPEED)
-			Constants.CURRENT_MAX_SPEED = this.body.speed;
+		if (this.body.speed > Constants.currentMaxSpeed)
+			Constants.currentMaxSpeed = this.body.speed;
 
-		if (this.body.Brain.vision > Constants.CURRENT_MAX_VISION)
-			Constants.CURRENT_MAX_VISION = this.body.Brain.vision;
+		if (this.body.Brain.vision > Constants.currentMaxVision)
+			Constants.currentMaxVision = this.body.Brain.vision;
 
 		// Change color
-		Color bodyColor = Color.Lerp(Color.green, Color.red, body.speed / Constants.CURRENT_MAX_SPEED);
-		bodyColor.a = this.body.Brain.vision / Constants.CURRENT_MAX_VISION;
+		Color bodyColor = Color.Lerp(Color.green, Color.red, body.speed / Constants.currentMaxSpeed);
+		bodyColor.a = this.body.Brain.vision / Constants.currentMaxVision;
 
 		Material newMaterial = new Material (Shader.Find ("Standard"));
 		newMaterial.color = bodyColor;

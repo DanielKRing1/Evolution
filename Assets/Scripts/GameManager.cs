@@ -7,7 +7,6 @@ public class GameManager : MonoBehaviour {
 	public bool auto;
 	public bool oscillate;
 	public int cycleLength = 25;
-	public int maxFoodCount = Constants.maxFoodCount;
 	public int foodChange = -1;
 
 	public GameObject timer;
@@ -53,7 +52,7 @@ public class GameManager : MonoBehaviour {
 			if (this.movesMade % this.cycleLength == 0) {
 				this.foodChange *= -1;
 			}
-			this.maxFoodCount += this.foodChange;
+			Constants.maxFoodCount += this.foodChange;
 		}
 
 		
@@ -112,7 +111,7 @@ public class GameManager : MonoBehaviour {
 		this.foodCount -= foodData.foodCount;
 	}
 	private void ReplenishFood() {
-		int missingFood = this.maxFoodCount - this.foodCount;
+		int missingFood = Constants.maxFoodCount - this.foodCount;
 
 		this.foodCount += missingFood;
 		this.AddFood (missingFood);
