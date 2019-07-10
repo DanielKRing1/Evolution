@@ -6,8 +6,9 @@ public class GameManager : MonoBehaviour {
 
 	public bool auto;
 	public bool oscillate;
+	public int oscillationDirection = -1;
+	public int foodChangeMagnitude = 1;
 	public int cycleLength = 25;
-	public int foodChange = -1;
 
 	public GameObject timer;
 	public GameObject world;
@@ -30,7 +31,7 @@ public class GameManager : MonoBehaviour {
 		if (this.auto) {
 			var newTimer = Instantiate (timer, Vector3.zero, Quaternion.identity);
 			var script = newTimer.GetComponent<Timer> ();
-			script.Init (this.MoveAnimals, this.ReplenishFood, Constants.ANIMATION_TIME + 0.02f);
+			script.Init (this.MoveAnimals, this.ReplenishFood, Constants.ANIMATION_TIME + 0.0f);
 			script.Start ();
 		} 
 	}
@@ -50,9 +51,9 @@ public class GameManager : MonoBehaviour {
 
 		if (this.oscillate) {
 			if (this.movesMade % this.cycleLength == 0) {
-				this.foodChange *= -1;
+				this.oscillationDirection *= -1;
 			}
-			Constants.maxFoodCount += this.foodChange;
+			Constants.maxFoodCount += (this.foodChangeMagnitude * this.oscillationDirection);
 		}
 
 		
